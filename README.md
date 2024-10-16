@@ -8,7 +8,8 @@ The PowerPoint and PDF directories are respectively set as script arguments or c
 The program will not convert the same file name twice. If the resulting PDF name is the same as the original name, it doesn't try to convert it into a PDF. 
 
 # Run
-`python PPX_2_PDF.py "C:\PowerPoint\Directory" "C:\PDF\Directory"`
+In root directory:
+`python .\PPX_2_PDF\PPX_2_PDF.py "C:\PowerPoint\Directory" "C:\PDF\Directory"`
 ## Compatibility
 Only compatible with Windows, tested on Windows 11.
 Utilizes the [comtypes](https://pythonhosted.org/comtypes/#the-comtypes-package) Python library.
