@@ -3,6 +3,7 @@ Automatically converts pptx or ppt files into pdf files. This project is only in
 `python PPX_2_PDF.py "C:\PowerPoint\Directory" "C:\PDF\Directory"`
 ## Compatibility
 Only compatible with Windows, tested on Windows 11.
+Utilizes the [comtypes](https://pythonhosted.org/comtypes/#the-comtypes-package) Python library.
 # Todo:
 - TODO ppx and pdf dir validation
 - TODO Sorting/Search algorithms implementation for optimization
