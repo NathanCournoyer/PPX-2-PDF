@@ -75,10 +75,9 @@ def str_dir_to_byte_dir (str_dir: str, dir_type: str) -> bytes:
         except FileNotFoundError as f_e:
             print(f"File not found error: {f_e}")
 
-            # Known Issue where if the dir starts with a number, \\ required
             print("No quotation marks needed.")
             
-            str_dir = input(f"Enter {dir_type} Directory as String or type 'exit': ")
+            str_dir = input(f"Enter {dir_type} Directory or type 'exit': ")
             if (str_dir == "exit"):
                 exit(2)
 
@@ -103,7 +102,7 @@ def PPTtoPDF(inputFileName, outputFileName):
     deck.SaveAs(outputFileName, 32) # formatType = 32 for ppt to pdf 
     # https://learn.microsoft.com/en-us/office/vba/api/powerpoint.ppsaveasfiletype 
     # deck.Close() Unrequired, causes errors
-    powerpoint.Quit() # Does the job ^
+    powerpoint.Quit() # > Does the job ^
 
 if __name__ == '__main__':
     sys.exit(main())  
