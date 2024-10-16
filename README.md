@@ -1,3 +1,5 @@
+# STOP GIVING CLASS NOTES AS POWERPOINTS
+
 # PPX-2-PDF
 Automatically converts pptx or ppt files into pdf files. This project is only intended for personal use but is open to improvements and could be updated. 
 
