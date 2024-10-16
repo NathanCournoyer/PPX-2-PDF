@@ -19,7 +19,6 @@ def main() -> int:
     pdf_str_dir: str = ""
     ppx_str_dir: str = ""
     exit_code: int = 0
-    valid_file_path: bool = False    
 
     # No real arg handling for now, one teacher sole reason this exists, const dir
     print(f"Script {PPX_2_PDF} running: {sys.argv}")
@@ -40,6 +39,7 @@ def main() -> int:
         # Default PDF location
         pdf_str_dir = DEFAULT_PDF_DIR
 
+    # TODO This could be a function that returns a byte list
     while (not valid_file_path):
         try :
             if (not os.path.isdir(ppx_str_dir) or not os.path.isdir(pdf_str_dir)):
@@ -78,6 +78,28 @@ def main() -> int:
     
     print(f"Script {PPX_2_PDF} exiting: {exit_code}")
     return exit_code
+
+def str_dir_to_byte_dir (str_dir: str) -> bytes:
+    valid_file_path: bool = False    
+    while (not valid_file_path):
+        try :
+            # Check if dir exists
+            if (not os.path.isdir(str_dir)):
+                raise FileNotFoundError
+    
+            # Iterables dir as bytes
+            bytes_dir: bytes  = os.fsencode(str_dir) 
+            
+            return bytes_dir
+        except FileNotFoundError as f_e:
+            print(f"File not found error: {f_e}")
+
+            # Known Issue where if the dir starts with a number, \\ required
+            print("If a dir starts with a number, \\ required. No quotation marks needed.")
+            
+            str_dir = input("Enter Directory as String or type 'exit': ")
+            if (str_dir == "exit"):
+                exit(2)
 
 # Sequential search through pdf dir, check if the ppx is converted already
 def is_ppx_file_in_pdf_dir(ppx_filename: str, pdf_bytes_dir: bytes) -> bool:
