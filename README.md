@@ -7,3 +7,4 @@ Todo:
 - TODO Script arg handling
 - TODO Error Handling
 - TODO Logger and styling
+- TODO Additional file extension handling
