@@ -1,5 +1,5 @@
-import sys, os
-from typing import final
+import sys, os # System stuff
+from typing import final # limited const implementation 
 from comtypes import client # type: ignore VS Code Type Warnings 
 
     # TODO ppx and pdf dir validation
@@ -55,8 +55,8 @@ def main() -> int:
             try: 
                 print(f"{filename}.pdf will be placed in {output_filename}")
                 PPTtoPDF(input_filename, output_filename)
-            except Exception as e:
-                print(f"Oopsie daisies: {e}")
+            except FileNotFoundError as file_error:
+                print(f"Oopsie daisies: {file_error}. It seems like the path is wrong or inaccessible.")
                 exit_code = -1
         else:
             print(f"{filename} is not a valid candidate for conversion.")
