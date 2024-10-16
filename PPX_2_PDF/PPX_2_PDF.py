@@ -42,16 +42,22 @@ def main() -> int:
 
     while (not valid_file_path):
         try :
+            if (not os.path.isdir(ppx_str_dir) or not os.path.isdir(pdf_str_dir)):
+                raise FileNotFoundError
+    
             # Iterables file lists as bytes lists
             ppx_bytes_dir: bytes  = os.fsencode(ppx_str_dir) 
             pdf_bytes_dir: bytes = os.fsencode(pdf_str_dir)
-
-            # Valid File Path Loop Exit
+            
             valid_file_path = True
-        except FileNotFoundError as file_not_found_error:
-            print(f"File not found: {file_not_found_error}")
-            ppx_bytes_dir = input("Enter PowerPoint source Directory: ")
-            pdf_bytes_dir = input("Enter PDF target Directory: ")
+        except FileNotFoundError:
+            print(f"File not found error.")
+            # Known Issue where if the dir starts with a number, \\ required
+            print("If a dir starts with a number, \\ required. No quotation marks needed.")
+            ppx_str_dir = input("Enter PowerPoint source Directory as String or type exit: ")
+            pdf_str_dir = input("Enter PDF target Directory as String or type exit: ")
+            if (pdf_str_dir == "exit" or ppx_str_dir == "exit"):
+                exit(2)
 
 
 
