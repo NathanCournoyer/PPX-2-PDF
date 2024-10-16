@@ -82,9 +82,10 @@ def PPTtoPDF(inputFileName, outputFileName):
     if outputFileName[-3:] != 'pdf':
         outputFileName = outputFileName + ".pdf"
     deck = powerpoint.Presentations.Open(inputFileName)
-    deck.SaveAs(outputFileName, 32) # formatType = 32 for ppt to pdf
-    # deck.Close()
-    powerpoint.Quit()
+    deck.SaveAs(outputFileName, 32) # formatType = 32 for ppt to pdf 
+    # https://learn.microsoft.com/en-us/office/vba/api/powerpoint.ppsaveasfiletype 
+    # deck.Close() Unrequired, causes errors
+    powerpoint.Quit() # Does the job ^
 
 if __name__ == '__main__':
     sys.exit(main())  
