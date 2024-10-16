@@ -49,8 +49,8 @@ def main() -> int:
         output_filename = os.path.join(pdf_str_dir, filename)
         if (filename.endswith(".pptx") or filename.endswith(".ppt")) and is_ppx_file_in_pdf_dir(filename, pdf_bytes_dir) == False:
             try: 
-                print(f"{filename}.pdf will be placed in {output_filename}")
                 PPTtoPDF(input_filename, output_filename)
+                print(f"{filename}.pdf was placed in {output_filename}")
             except Exception as file_error:
                 print(f"Oopsie daisies: {file_error}. It seems like the path is wrong or inaccessible.")
                 exit_code = -1
