@@ -1,17 +1,20 @@
 # STOP GIVING CLASS NOTES AS POWERPOINTS
 
-# PPX-2-PDF
+# PPX_2_PDF.py
 Automatically converts pptx or ppt files into pdf files. This project is only intended for personal use but is open to improvements and could be updated. 
 
-The PowerPoint and PDF directories are respectively set as script arguments or can be hardcoded into constant variables DEFAULT_PDF_DIR and DEFAULT_PPX_DIR, if no arguments are provided, default directories are used but if the directories aren't correct, the program fails. 
+The PowerPoint and PDF directories are respectively set as source and target directories as script arguments or can be hardcoded into constant variables DEFAULT_PDF_DIR and DEFAULT_PPX_DIR, if no arguments are provided, default directories are used but if the directories aren't correct, asks to re-enter each directory path until they are found on the system and then or the user can enter `exit` to exit the program. 
 
-The program will not convert the same file name twice. If the resulting PDF name is the same as the original name, it doesn't try to convert it into a PDF. 
+The program will not convert the same filename twice. If the resulting PDF name is the same as the original name, it doesn't try to convert it into a PDF. 
 
 # To Run
-- Python must be installed.
-- comtypes must be installed.
-
 In project root directory:
+
+- Python must be installed.
+`python --version`
+- comtypes must be installed.
+`python -m pip install -r requirements.txt`
+
 `python .\PPX_2_PDF\PPX_2_PDF.py "C:\PowerPoint\Directory" "C:\PDF\Directory"`
 
 # This can be done with the help of the Windows file explorer 
