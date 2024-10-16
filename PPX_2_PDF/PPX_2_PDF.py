@@ -40,11 +40,9 @@ def main() -> int:
         # Default PDF location
         pdf_str_dir = DEFAULT_PDF_DIR
 
-
-    
-    # Iterables
     while (not valid_file_path):
         try :
+            # Iterables file lists as bytes lists
             ppx_bytes_dir: bytes  = os.fsencode(ppx_str_dir) 
             pdf_bytes_dir: bytes = os.fsencode(pdf_str_dir)
 
