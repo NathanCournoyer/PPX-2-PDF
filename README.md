@@ -24,9 +24,6 @@ There is no need to put in `""` in advance, on Windows 11 they will be copied al
 Only compatible with Windows, tested on Windows 11.
 Utilizes the [comtypes](https://pythonhosted.org/comtypes/#the-comtypes-package) Python library.
 ## Todo:
-- TODO ppx and pdf dir validation
 - TODO Sorting/Search algorithms implementation for optimization
-- TODO Script arg handling
-- TODO Error Handling
 - TODO Logger and styling
 - TODO Additional file extension handling
