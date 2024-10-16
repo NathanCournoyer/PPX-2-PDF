@@ -39,28 +39,9 @@ def main() -> int:
         # Default PDF location
         pdf_str_dir = DEFAULT_PDF_DIR
 
-    # TODO This could be a function that returns a byte list
-    while (not valid_file_path):
-        try :
-            if (not os.path.isdir(ppx_str_dir) or not os.path.isdir(pdf_str_dir)):
-                raise FileNotFoundError
-    
-            # Iterables file lists as bytes lists
-            ppx_bytes_dir: bytes  = os.fsencode(ppx_str_dir) 
-            pdf_bytes_dir: bytes = os.fsencode(pdf_str_dir)
+    ppx_bytes_dir: bytes  = str_dir_to_byte_dir(ppx_str_dir, "PPX") 
+    pdf_bytes_dir: bytes = str_dir_to_byte_dir(pdf_str_dir, "PDF")
             
-            valid_file_path = True
-        except FileNotFoundError:
-            print(f"File not found error.")
-            # Known Issue where if the dir starts with a number, \\ required
-            print("If a dir starts with a number, \\ required. No quotation marks needed.")
-            ppx_str_dir = input("Enter PowerPoint source Directory as String or type exit: ")
-            pdf_str_dir = input("Enter PDF target Directory as String or type exit: ")
-            if (pdf_str_dir == "exit" or ppx_str_dir == "exit"):
-                exit(2)
-
-
-
     # https://stackoverflow.com/a/10378012 CC BY-SA 4.0
     for file in os.listdir(ppx_bytes_dir):
         filename = os.fsdecode(file)
@@ -79,7 +60,7 @@ def main() -> int:
     print(f"Script {PPX_2_PDF} exiting: {exit_code}")
     return exit_code
 
-def str_dir_to_byte_dir (str_dir: str) -> bytes:
+def str_dir_to_byte_dir (str_dir: str, dir_type: str) -> bytes:
     valid_file_path: bool = False    
     while (not valid_file_path):
         try :
@@ -95,9 +76,9 @@ def str_dir_to_byte_dir (str_dir: str) -> bytes:
             print(f"File not found error: {f_e}")
 
             # Known Issue where if the dir starts with a number, \\ required
-            print("If a dir starts with a number, \\ required. No quotation marks needed.")
+            print("No quotation marks needed.")
             
-            str_dir = input("Enter Directory as String or type 'exit': ")
+            str_dir = input(f"Enter {dir_type} Directory as String or type 'exit': ")
             if (str_dir == "exit"):
                 exit(2)
 
